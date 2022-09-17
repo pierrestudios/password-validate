@@ -1,7 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 
 import { PasswordField } from "../";
-import { PasswordFieldProps } from "../components/PasswordField.types";
+import { PasswordFieldProps } from "../types";
 
 export default {
   title: "Example/Password Field",
@@ -15,7 +15,6 @@ const Template: Story<PasswordFieldProps> = (args) => (
 
 export const PasswordFieldExample = Template.bind({});
 PasswordFieldExample.args = {
-  name: "password",
-  label: "Enter password",
-  placeholder: "Enter password...",
+  label: "Type your password",
+  label_confirm: "Confirm your password",
 };
