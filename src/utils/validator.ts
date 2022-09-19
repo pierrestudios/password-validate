@@ -13,7 +13,7 @@ const specs = [
     },
   },
   {
-    label: "1 uppercase char",
+    label: "At least 1 uppercase char",
     id: 3,
     validator: (password: string) =>
       password
@@ -22,23 +22,23 @@ const specs = [
       .filter((char) => char.toUpperCase() === char).length > 0,
   },
   {
-    label: "1 lowercase char",
+    label: "At least 1 lowercase char",
     id: 4,
     validator: (password: string) =>
       password.split("").filter((char) => char.toLowerCase() === char).length > 0,
   },
   {
-    label: `1 special character (!@#$%^&*()_-+={[}]|:;"'<,>.)`,
+    label: `At least 1 special character (!@#$%^&*()_-+={[}]|:;"'<,>.)`,
     id: 5,
     validator: (password: string) => {
       const specialChars = `!@#$%^&*()_-+={[}]|:;"'<,>.`;
       return password.split("").filter((char) => specialChars.indexOf(char) !== -1).length > 0
     }
   },
-  { label: "Password confirm", id: 6, validatorConfirm: (password: string, passwordConfirm: string) => !!password && password === passwordConfirm },
+  { label: "To match password confirm", id: 6, validatorConfirm: (password: string, passwordConfirm: string) => !!password && password === passwordConfirm },
 ];
 
-export function getValidationErrors(password: string, passwordConfirm: string) {
+export function getValidationErrors(password: string = "", passwordConfirm: string = "") {
   return specs
     .filter((v) => {
       if (typeof v.validatorConfirm === "function") {
