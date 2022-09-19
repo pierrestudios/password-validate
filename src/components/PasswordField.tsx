@@ -7,6 +7,8 @@ import {
   StyledField,
   StyledLabel,
   StyledInput,
+  StyledError,
+  StyledErrorHeading,
 } from "./PasswordField.styles";
 import { getValidationErrors } from "../utils/validator";
 
@@ -18,7 +20,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
 }) => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [errors, setErrors] = useState<ErrorProps[]>([]);
+  const [errors, setErrors] = useState<ErrorProps[] | null>(null);
   const updateInput = ({
     currentTarget: elem,
   }: {
@@ -81,6 +83,21 @@ const PasswordField: FC<PasswordFieldProps> = ({
           value={passwordConfirm}
         />
       </StyledField>
+
+      <StyledWrapper>
+        {errors && errors.length === 0 ? (
+          <StyledErrorHeading>Your password entry is valid</StyledErrorHeading>
+        ) : null}
+        {errors && errors.length ? (
+          <StyledErrorHeading>
+            Please check your password entry for the following:
+          </StyledErrorHeading>
+        ) : null}
+        {errors &&
+          errors.map((error) => {
+            return <StyledError key={error.id}>{error.label}</StyledError>;
+          })}
+      </StyledWrapper>
     </StyledWrapper>
   );
 };

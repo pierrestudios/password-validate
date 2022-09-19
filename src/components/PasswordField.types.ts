@@ -8,22 +8,10 @@ export interface PasswordFieldProps {
 }
 
 export interface ElementStyleProps {
-  styles: {
+  styles?: {
     [key: string]: string | number;
   }
 } 
-
-export interface WrapperProps {
-  styles?: ElementStyleProps
-}
-
-export interface FieldProps {
-  styles?: ElementStyleProps
-}
-
-export interface LabelProps {
-  styles?: ElementStyleProps
-}
 
 export interface FieldInputProps {
   id?: string;
