@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { FC } from "react";
 
-import { PasswordFieldProps } from "./PasswordField.types";
+import { ErrorProps, PasswordFieldProps } from "./PasswordField.types";
 import {
   StyledWrapper,
   StyledField,
   StyledLabel,
   StyledInput,
 } from "./PasswordField.styles";
+import { getValidationErrors } from "../utils/validator";
 
 const PasswordField: FC<PasswordFieldProps> = ({
   label = "Enter password",
   label_confirm = "Confirm password",
   onChange = (isValid: boolean) => {},
+  autorun = true,
 }) => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [errors, setErrors] = useState<ErrorProps[]>([]);
   const updateInput = ({
     currentTarget: elem,
   }: {
@@ -34,11 +37,13 @@ const PasswordField: FC<PasswordFieldProps> = ({
         passwordValue = elem.value;
         break;
     }
-    const isValid = validate({
-      password: passwordValue || password,
-      passwordConfirm: passwordConfirmValue || passwordConfirm,
-    });
-    onChange(isValid);
+    if (autorun) {
+      const isValid = validate({
+        password: passwordValue || password,
+        passwordConfirm: passwordConfirmValue || passwordConfirm,
+      });
+      onChange(isValid);
+    }
   };
   const validate = ({
     password,
@@ -47,14 +52,20 @@ const PasswordField: FC<PasswordFieldProps> = ({
     password: string;
     passwordConfirm: string;
   }) => {
-    return false;
+    setErrors([]);
+    const errors: ErrorProps[] = getValidationErrors(password, passwordConfirm);
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
   };
+
   return (
     <StyledWrapper>
       <StyledField>
         <StyledLabel>{label}</StyledLabel>
         <StyledInput
           name="password"
+          type="password"
           placeholder={`${label}...`}
           onInput={updateInput}
           value={password}
@@ -64,6 +75,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
         <StyledLabel>{label_confirm}</StyledLabel>
         <StyledInput
           name="password-confirm"
+          type="password"
           placeholder={`${label_confirm}...`}
           onInput={updateInput}
           value={passwordConfirm}

@@ -4,6 +4,7 @@ export interface PasswordFieldProps {
   label: string;
   label_confirm: string; 
   onChange: () => void;
+  autorun: boolean;
 }
 
 export interface ElementStyleProps {
@@ -30,4 +31,9 @@ export interface FieldInputProps {
   disabled?: string;
   placeholder: string;
   onInput: ChangeEventHandler<HTMLInputElement>
+}
+
+export interface ErrorProps {
+  id: number;
+  label: string;
 }
