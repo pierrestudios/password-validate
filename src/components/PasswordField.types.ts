@@ -1,10 +1,10 @@
-import { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler } from "react";
 
 export interface PasswordFieldProps {
   label: string;
   label_confirm: string; 
-  onChange: () => void;
-  autorun: boolean;
+  onChange?: (isValid: boolean) => void;
+  autorun?: boolean;
 }
 
 export interface ElementStyleProps {

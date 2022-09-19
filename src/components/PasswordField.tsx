@@ -9,6 +9,7 @@ import {
   StyledInput,
   StyledError,
   StyledErrorHeading,
+  StyledTriggerButton,
 } from "./PasswordField.styles";
 import { getValidationErrors } from "../utils/validator";
 
@@ -16,7 +17,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
   label = "Enter password",
   label_confirm = "Confirm password",
   onChange = (isValid: boolean) => {},
-  autorun = true,
+  autorun = false,
 }) => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -90,13 +91,23 @@ const PasswordField: FC<PasswordFieldProps> = ({
         ) : null}
         {errors && errors.length ? (
           <StyledErrorHeading>
-            Please check your password entry for the following:
+            Please check your password entry. Password needs:
           </StyledErrorHeading>
         ) : null}
         {errors &&
           errors.map((error) => {
             return <StyledError key={error.id}>{error.label}</StyledError>;
           })}
+      </StyledWrapper>
+
+      <StyledWrapper>
+        <StyledTriggerButton
+          onClick={() => {
+            onChange(validate({ password, passwordConfirm }));
+          }}
+        >
+          Validate
+        </StyledTriggerButton>
       </StyledWrapper>
     </StyledWrapper>
   );

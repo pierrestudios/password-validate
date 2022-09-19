@@ -17,6 +17,16 @@ export const StyledErrorHeading = styled.div<ElementStyleProps>`
   font-weight: 700;
 `;
 
+export const StyledTriggerButton = styled.button<ElementStyleProps>`
+  background-color: #0db09b;
+  color: #fff;
+  font-size: 1em;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border: 2px solid #0db09b;
+  border-radius: 3px;
+`;
+
 export const StyledError = styled(StyledField)`
   color: red;
 `;
