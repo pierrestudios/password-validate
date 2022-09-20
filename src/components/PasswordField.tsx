@@ -67,6 +67,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
         <StyledLabel htmlFor="password">{label}</StyledLabel>
         <StyledInput
           id="password"
+          data-testid="test-password"
           name="password"
           type="password"
           placeholder={`${label}...`}
@@ -78,6 +79,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
         <StyledLabel htmlFor="password-confirm">{label_confirm}</StyledLabel>
         <StyledInput
           id="password-confirm"
+          data-testid="test-password-confirm"
           name="password-confirm"
           type="password"
           placeholder={`${label_confirm}...`}
