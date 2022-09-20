@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 
-import { PasswordField } from "../";
+import PasswordField from "../";
 import { PasswordFieldProps } from "../types";
 
 export default {

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { PasswordField } from "..";
+import PasswordField from "..";
 
 describe("Test PasswordField component for validator integration", () => {
   test("Check for passed label in fields", () => {
