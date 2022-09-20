@@ -34,7 +34,7 @@ const args = {
 
 ### Validation event listener
 
-To listen for validation event on input use, `onValidate` argument in component. The is will return a boolean value for validation result: `true` for valid, `false` for invalid.
+To listen for validation event on input use, `onValidate` argument in component. The is will return a boolean value as the first argument for validation result: `true` for valid, `false` for invalid. And it returns a string for the second argument for the value entered.
 
 ```js
 ...
