@@ -15,7 +15,7 @@ import { getValidationErrors } from "../utils/validator";
 const PasswordField: FC<PasswordFieldProps> = ({
   label = "Enter password",
   label_confirm = "Confirm password",
-  onChange = (isValid: boolean) => {},
+  onValidate = (isValid: boolean, value: string) => {},
   autorun = false,
 }) => {
   const [password, setPassword] = useState("");
@@ -44,7 +44,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
         password: passwordValue || password,
         passwordConfirm: passwordConfirmValue || passwordConfirm,
       });
-      onChange(isValid);
+      onValidate(isValid, passwordValue || password);
     }
   };
   const validate = ({
@@ -106,7 +106,8 @@ const PasswordField: FC<PasswordFieldProps> = ({
       <StyledWrapper>
         <StyledTriggerButton
           onClick={() => {
-            onChange(validate({ password, passwordConfirm }));
+            const isValid = validate({ password, passwordConfirm });
+            onValidate(isValid, password);
           }}
         >
           Validate

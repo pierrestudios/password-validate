@@ -55,13 +55,13 @@ describe("Test PasswordField component for validator integration", () => {
     );
   });
 
-  test("Check for passed params, autorun, onChange in fields", async () => {
+  test("Check for passed params, autorun, onValidate in fields", async () => {
     const mockChange = jest.fn();
     const args = {
       label: "Type your password",
       label_confirm: "Confirm your password",
       autorun: true,
-      onChange: mockChange,
+      onValidate: mockChange,
     };
     const test_password = "abc";
 
@@ -74,7 +74,7 @@ describe("Test PasswordField component for validator integration", () => {
       screen.getByText(/Please check your password entry/i)
     ).toBeInTheDocument();
     expect(mockChange).toHaveBeenCalled();
-    expect(mockChange).toBeCalledWith(false);
+    expect(mockChange).toBeCalledWith(false, test_password);
   });
 
   test("Check that Validate button works", async () => {
@@ -82,7 +82,7 @@ describe("Test PasswordField component for validator integration", () => {
     const args = {
       label: "Type your password",
       label_confirm: "Confirm your password",
-      onChange: mockChange,
+      onValidate: mockChange,
     };
     const test_password = "abc";
 
@@ -95,7 +95,7 @@ describe("Test PasswordField component for validator integration", () => {
       screen.getByText(/Please check your password entry/i)
     ).toBeInTheDocument();
     expect(mockChange).toHaveBeenCalled();
-    expect(mockChange).toBeCalledWith(false);
+    expect(mockChange).toBeCalledWith(false, test_password);
   });
 
   test("Check that all validation error displays and clears", async () => {

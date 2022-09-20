@@ -20,7 +20,7 @@ It also has a submit button that will trigger validation and present success or 
 ## To use in React
 
 ```js
-import { PasswordField } from "password-validate";
+import PasswordField from "password-validate";
 
 const args = {
   label: "Type your password",
@@ -34,13 +34,13 @@ const args = {
 
 ### Validation event listener
 
-To listen for validation event on input use, `onChange` argument in component. The is will return a boolean value for validation result: `true` for valid, `false` for invalid.
+To listen for validation event on input use, `onValidate` argument in component. The is will return a boolean value for validation result: `true` for valid, `false` for invalid.
 
 ```js
 ...
 const args = {
   ...,
-  onChange: (isValid) => console.log(isValid)
+  onValidate: (isValid, value) => console.log(isValid, value)
 };
 
 <PasswordField {...args} />;

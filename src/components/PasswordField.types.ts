@@ -3,7 +3,7 @@ import { ChangeEventHandler } from "react";
 export interface PasswordFieldProps {
   label: string;
   label_confirm: string; 
-  onChange?: (isValid: boolean) => void;
+  onValidate?: (isValid: boolean, value: string) => void;
   autorun?: boolean;
 }
 
