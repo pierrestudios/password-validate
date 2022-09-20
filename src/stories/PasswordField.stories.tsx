@@ -1,6 +1,6 @@
 import { Meta, Story } from "@storybook/react";
 
-import PasswordField from "../";
+import { PasswordField } from "../";
 import { PasswordFieldProps } from "../types";
 
 export default {
@@ -17,4 +17,7 @@ export const PasswordFieldExample = Template.bind({});
 PasswordFieldExample.args = {
   label: "Type your password",
   label_confirm: "Confirm your password",
+  onValidate: (valid, value) => {
+    console.log({ valid, value });
+  },
 };

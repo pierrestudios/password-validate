@@ -7,7 +7,7 @@ export interface PasswordFieldProps {
   autorun?: boolean;
 }
 
-export interface ElementStyleProps {
+export interface HTMLElementProps {
   styles?: {
     [key: string]: string | number;
   }
