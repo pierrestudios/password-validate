@@ -4,6 +4,7 @@ import { ElementStyleProps, FieldInputProps } from "./PasswordField.types";
 
 export const StyledWrapper = styled.div<ElementStyleProps>`
   display: block;
+  font-family: Arial, Helvetica sans-serif;
 `;
 
 export const StyledField = styled.div<ElementStyleProps>`
@@ -14,8 +15,9 @@ export const StyledField = styled.div<ElementStyleProps>`
 
 export const StyledErrorHeading = styled.div<ElementStyleProps>`
   display: block;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
+  margin: 20px 0 10px;
 `;
 
 export const StyledTriggerButton = styled.button<ElementStyleProps>`
@@ -29,7 +31,9 @@ export const StyledTriggerButton = styled.button<ElementStyleProps>`
 `;
 
 export const StyledError = styled(StyledField)`
+  border: solid #f4d2d2 2px;
   color: red;
+  padding: 5px 10px;
 `;
 
 export const StyledLabel = styled.label<ElementStyleProps>`
