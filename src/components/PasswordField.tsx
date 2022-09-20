@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { FC } from "react";
+import React, { useState, FC } from "react";
 
 import { ErrorProps, PasswordFieldProps } from "./PasswordField.types";
 import {
