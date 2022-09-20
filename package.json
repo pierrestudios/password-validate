@@ -1,9 +1,10 @@
 {
   "name": "password-validate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A component to create a password fields, validate and display an error",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
