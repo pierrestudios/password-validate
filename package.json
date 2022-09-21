@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "test": "jest",
+    "test": "jest --verbose",
+    "test-watch": "jest --watch --verbose",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
