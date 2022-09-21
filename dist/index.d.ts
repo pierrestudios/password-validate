@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface PasswordFieldProps {
     label: string;
     label_confirm: string;
@@ -5,4 +7,6 @@ interface PasswordFieldProps {
     autorun?: boolean;
 }
 
-export { PasswordFieldProps };
+declare const PasswordField: React.FC<PasswordFieldProps>;
+
+export { PasswordField };

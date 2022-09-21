@@ -15,6 +15,7 @@ export default [
         file: packageJson.main,
         format: "cjs",
         sourcemap: true,
+        name: "password-validate",
       },
       {
         file: packageJson.module,
