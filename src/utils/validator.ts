@@ -17,15 +17,18 @@ const specs = [
     id: 3,
     validator: (password: string) =>
       password
-      .replace(/[^a-z]/gmi, "")
-      .split("")
-      .filter((char) => char.toUpperCase() === char).length > 0,
+        .replace(/[^a-z]/gmi, "")
+        .split("")
+        .filter((char) => char.toUpperCase() === char).length > 0,
   },
   {
     label: "At least 1 lowercase char",
     id: 4,
     validator: (password: string) =>
-      password.split("").filter((char) => char.toLowerCase() === char).length > 0,
+      password
+        .replace(/[^a-z]/gmi, "")
+        .split("")
+        .filter((char) => char.toLowerCase() === char).length > 0,
   },
   {
     label: `At least 1 special character (!@#$%^&*()_-+={[}]|:;"'<,>.)`,
