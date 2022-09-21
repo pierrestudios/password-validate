@@ -1,8 +1,8 @@
 # Welcome to Password Validate
 
-Use this component to create a password and password confirm fields that will validate password entries and display an error for invalid password entries.
+Use this React component to create a password and password confirm fields that will validate password entries and display errors for invalid entries.
 
-This component has two input fields to validate the entry from the user and the following requirements:
+The component has two input fields to validate entries from the user and the following requirements:
 
 - Password has a min length of 6 characters
 - Password has at least 1 uppercase character
@@ -13,6 +13,8 @@ This component has two input fields to validate the entry from the user and the 
 
 It also has a submit button that will trigger validation and present success or why the password entry failed
 
+![Password Validate errors screenshot](/screenshot.jpg?raw=true)
+
 ## To install
 
 `npm install https://github.com/pierrestudios/password-validate`
@@ -20,7 +22,7 @@ It also has a submit button that will trigger validation and present success or 
 ## To use in React
 
 ```js
-import PasswordField from "password-validate";
+import { PasswordField } from "@pierrestudios/password-validate";
 
 const args = {
   label: "Type your password",
